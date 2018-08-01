@@ -7,11 +7,19 @@ class Blockchain(object):
 
         """
         pass
-    def new_transaction(self):
-        """ Adds a new transaction to the list
+    def new_transaction(self, sender, recipient, amount):
+        """ Return the index of the block which holds the transaction
+            Adds a new transaction to the list
         """
-        pass
+        self.current_transaction.append(
+            {
+                'sender': sender,
+                'recipient': recipient,
+                'amount': amount,
+            }
+        )
 
+        return self.last_block['index'] + 1
     @staticmethod
     def hash(block):
         """ Return the hashed value of a block
